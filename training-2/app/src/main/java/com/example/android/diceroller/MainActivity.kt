@@ -22,7 +22,6 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
 /**
@@ -31,20 +30,19 @@ import java.util.*
  * value between 1 and 6.
  */
 class MainActivity : AppCompatActivity() {
-//    var diceImage : ImageView? = null
-     lateinit var diceImage : ImageView
+    lateinit var diceImage : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
-         diceImage = findViewById(R.id.dice_image)
-
+        //lateinit var diceImage : ImageView
+       // val diceImage: ImageView = findViewById(R.id.dice_image)
+        diceImage = findViewById(R.id.dice_image)
         // Get the Button view from the layout and assign a click
         // listener to it.
         val rollButton: Button = findViewById(R.id.roll_button)
         rollButton.setOnClickListener { rollDice() }
+
     }
 
     /**
@@ -53,10 +51,8 @@ class MainActivity : AppCompatActivity() {
     private fun rollDice() {
         // Toast.makeText(this, "button clicked",
         //  Toast.LENGTH_SHORT).show()
-//        val resultText: TextView = findViewById(R.id.result_text)
-//        resultText.text = randomInt.toString()
-        val randomInt = (1..6).random()
 
+        val randomInt = (1..6).random()
         val drawableResource = when (randomInt) {
             1 -> R.drawable.dice_1
             2 -> R.drawable.dice_2
@@ -65,8 +61,10 @@ class MainActivity : AppCompatActivity() {
             5 -> R.drawable.dice_5
             else -> R.drawable.dice_6
         }
+        diceImage.setImageResource(drawableResource)
 
-    dice_image.setImageResource(drawableResource)
+        val resultText: TextView = findViewById(R.id.result_text)
+        resultText.text = randomInt.toString()
 
     }
 }
