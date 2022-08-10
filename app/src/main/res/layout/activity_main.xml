@@ -10,9 +10,10 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/result_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="@string/txt_dice"
         android:textSize="30sp"
         android:layout_gravity="center_horizontal"/>
 
